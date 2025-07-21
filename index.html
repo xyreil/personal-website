@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TLE Project – Stephanie Briones</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #f8bbd0, #e1bee7);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(45deg, #6a1b9a, #ab47bc);
+      color: white;
+      padding: 1.5em 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffccff;
+    }
+
+    section {
+      padding: 4em 2em;
+      max-width: 1000px;
+      margin: 3em auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    h2 {
+      color: #8e24aa;
+      border-bottom: 2px solid #ce93d8;
+      padding-bottom: 0.3em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 250px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.7em;
+      border: 2px solid #ce93d8;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    form input[type="submit"] {
+      background-color: #8e24aa;
+      color: white;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ce93d8;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #6a1b9a;
+      box-shadow: 0 0 15px #ab47bc;
+    }
+
+    footer {
+      background: #f3e5f5;
+      text-align: center;
+      padding: 2em;
+      font-size: 0.9em;
+      color: #5e35b1;
+      font-weight: bold;
+    }
+
+    .contact-info p {
+      margin: 0.5em 0;
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TLE Project: Personal Website</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome</h2>
+    <p>Hello! I'm a student passionate about learning and exploring new skills, especially in TLE. I love creating projects and expressing myself through digital media and creativity!</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello, everyone! I am <strong>Stephanie Xyreil T. Briones</strong>. I live in <strong>Manga Pulungbulo, Angeles City</strong>, and I am 14 years old.</p>
+    <p>I love playing volleyball and mobile games like <em>Mobile Legends</em>. I'm really friendly and love meeting new people, so feel free to explore my website!</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Project+1" alt="Project Image 1">
+      <img src="https://via.placeholder.com/300x200?text=Project+2" alt="Project Image 2">
+      <img src="https://via.placeholder.com/300x200?text=Project+3" alt="Project Image 3">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> bstephaniexyreilt@gmail.com</p>
+      <p><strong>Facebook:</strong> Briones Stephanie Xyreil</p>
+      <p><strong>Instagram:</strong> @itsrealxyyy_</p>
+      <p><strong>Phone:</strong> 0994 095 3081</p>
+    </div>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Stephanie Xyreil T. Briones. All rights reserved.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    function revealSections() {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("visible");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealSections);
+    window.addEventListener("load", revealSections);
+  </script>
+
+</body>
+</html>
